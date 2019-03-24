@@ -1,0 +1,12 @@
+android:layout_height			Viewの高さ
+android:layout_width			Viewの横幅
+android:padding					上下左右のパディング
+android:paddingTop				上のパディング
+android:paddingBottom			下のパディング
+android:paddingLeft				左のパディング
+android:paddingRight			右のパディング
+android:layout_margin			上下左右のマージン
+android:layout_marginTop		上のマージン
+android:layout_marginBottom		上下のマージン
+android:layout_marginLeft		左のマージン
+android:layout_marginRight		右のマージン
