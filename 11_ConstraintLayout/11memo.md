@@ -25,3 +25,60 @@
 	「Match Constraints」とは、水平の制約とマージンによって幅が決定されることを意味します。したがって、テキスト ボックスが引き延ばされて、水平方向のスペースを埋めています（ボタンとすべてのマージンを考慮した後）。
 	
 これでレイアウトが完了。
+
+----------------------------------------
+activity を作成する
+
+１、[Project] ウィンドウで app フォルダを右クリックし、[New] > [Activity] > [Empty Activity] を選択します。
+２、[Configure Activity] ウィンドウの [Activity Name] に「DisplayMessageActivity」と入力し、[Finish] をクリックします（他のすべてのプロパティはデフォルトのままにします）。
+
+	Android Studio は自動的に次の 3 つの処理を実行します。
+
+		DisplayMessageActivity.java ファイルを作成する。
+		対応するレイアウト ファイル activity_display_message.xml を作成する。
+		必要な <activity> 要素を AndroidManifest.xml に追加する。
+	
+
+---------------------------------------
+「Send」ボタンのオンクリックイベント
+
+３、「DisplayMessageActivity」のテキストビューを追加する
+
+
+４、ボタンをタップする時の　sendMessage() メソッドを作成する
+	app > java > com.example.myfirstapp > MainActivity.java ファイルで、sendMessage() メソッドを追加します。
+
+	このメソッドは以下を宣言する必要があります。
+
+	パブリック アクセス
+	戻り値型が void であること
+	View のみをパラメータとして持つこと（これはクリックされた View オブジェクトです）
+
+
+５、activity_main.xml ファイルに戻り、
+	Layout Editor でボタンをクリックして選択します。
+	[Attributes] ウィンドウで、[onClick] プロパティを見つけ、プルダウン リストから [sendMessage [MainActivity]] を選択します。
+	
+６、メッセージを表示する処理
+	DisplayMessageActivity.java で、1 つ目の activity から渡されたメッセージを表示するように修正します。
+	
+
+----------------------------------------
+Up ナビゲーションを追加する
+
+app > Manifests > AndroidManifest.xml ファイルを開き、DisplayMessageActivity の <activity> タグを見つけて、次のコードに置き換えます。
+
+	<activity android:name=".DisplayMessageActivity"></activity>
+	
+	↓↓↓↓↓↓
+	
+    <activity android:name=".DisplayMessageActivity"
+                android:parentActivityName=".MainActivity">
+        <!-- The meta-data tag is required if you support API level 15 and lower -->
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MainActivity" />
+    </activity>
+
+
+完了。
